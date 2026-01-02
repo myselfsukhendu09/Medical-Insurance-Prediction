@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Predict your medical insurance costs using advanced machine learning">
+    <title>Medical Insurance Cost Predictor | AI-Powered Estimation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="background-animation">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M20 5C11.716 5 5 11.716 5 20C5 28.284 11.716 35 20 35C28.284 35 35 28.284 35 20C35 11.716 28.284 5 20 5Z" stroke="url(#gradient)" stroke-width="2"/>
+                    <path d="M20 12V28M12 20H28" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="5" y1="5" x2="35" y2="35">
+                            <stop offset="0%" stop-color="#667eea"/>
+                            <stop offset="100%" stop-color="#764ba2"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <h1>MediCost AI</h1>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h2 class="hero-title">
+                        Predict Your Medical Insurance Cost
+                        <span class="gradient-text">with AI Precision</span>
+                    </h2>
+                    <p class="hero-subtitle">
+                        Advanced machine learning algorithms analyze your health profile to provide accurate insurance cost estimates in seconds.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Prediction Form -->
+            <section class="prediction-section">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h3>Enter Your Information</h3>
+                        <p>All fields are required for accurate prediction</p>
+                    </div>
+
+                    <form id="predictionForm" class="prediction-form">
+                        <div class="form-grid">
+                            <!-- Age Input -->
+                            <div class="form-group">
+                                <label for="age" class="form-label">
+                                    <span class="label-icon">👤</span>
+                                    Age
+                                </label>
+                                <input 
+                                    type="number" 
+                                    id="age" 
+                                    name="age" 
+                                    class="form-input" 
+                                    placeholder="Enter your age"
+                                    min="18"
+                                    max="100"
+                                    required
+                                >
+                                <span class="input-hint">Age between 18-100</span>
+                            </div>
+
+                            <!-- Sex Input -->
+                            <div class="form-group">
+                                <label for="sex" class="form-label">
+                                    <span class="label-icon">⚧</span>
+                                    Gender
+                                </label>
+                                <select id="sex" name="sex" class="form-input" required>
+                                    <option value="">Select gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+
+                            <!-- BMI Input -->
+                            <div class="form-group">
+                                <label for="bmi" class="form-label">
+                                    <span class="label-icon">⚖️</span>
+                                    BMI (Body Mass Index)
+                                </label>
+                                <input 
+                                    type="number" 
+                                    id="bmi" 
+                                    name="bmi" 
+                                    class="form-input" 
+                                    placeholder="Enter your BMI"
+                                    step="0.1"
+                                    min="10"
+                                    max="60"
+                                    required
+                                >
+                                <span class="input-hint">BMI between 10-60</span>
+                            </div>
+
+                            <!-- Children Input -->
+                            <div class="form-group">
+                                <label for="children" class="form-label">
+                                    <span class="label-icon">👨‍👩‍👧‍👦</span>
+                                    Number of Children
+                                </label>
+                                <input 
+                                    type="number" 
+                                    id="children" 
+                                    name="children" 
+                                    class="form-input" 
+                                    placeholder="Number of dependents"
+                                    min="0"
+                                    max="10"
+                                    required
+                                >
+                                <span class="input-hint">0-10 children</span>
+                            </div>
+
+                            <!-- Smoker Input -->
+                            <div class="form-group">
+                                <label for="smoker" class="form-label">
+                                    <span class="label-icon">🚭</span>
+                                    Smoking Status
+                                </label>
+                                <select id="smoker" name="smoker" class="form-input" required>
+                                    <option value="">Select status</option>
+                                    <option value="no">Non-Smoker</option>
+                                    <option value="yes">Smoker</option>
+                                </select>
+                            </div>
+
+                            <!-- Region Input -->
+                            <div class="form-group">
+                                <label for="region" class="form-label">
+                                    <span class="label-icon">📍</span>
+                                    Region
+                                </label>
+                                <select id="region" name="region" class="form-input" required>
+                                    <option value="">Select region</option>
+                                    <option value="northeast">Northeast</option>
+                                    <option value="northwest">Northwest</option>
+                                    <option value="southeast">Southeast</option>
+                                    <option value="southwest">Southwest</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <span class="btn-text">Predict Insurance Cost</span>
+                            <span class="btn-loader" style="display: none;">
+                                <span class="loader"></span>
+                            </span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-container" id="resultsContainer" style="display: none;">
+                    <div class="results-header">
+                        <h3>Your Predicted Insurance Cost</h3>
+                    </div>
+
+                    <div class="prediction-result">
+                        <div class="result-amount">
+                            <span class="currency">$</span>
+                            <span id="predictionAmount">0.00</span>
+                        </div>
+                        <p class="result-label">Estimated Annual Premium</p>
+                    </div>
+
+                    <div class="insights-section">
+                        <h4>Key Insights</h4>
+                        <div id="insightsList" class="insights-list">
+                            <!-- Insights will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="input-summary">
+                        <h4>Your Information</h4>
+                        <div id="inputSummary" class="summary-grid">
+                            <!-- Summary will be populated here -->
+                        </div>
+                    </div>
+
+                    <button class="reset-btn" onclick="resetForm()">
+                        Calculate Again
+                    </button>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features">
+                <h3 class="section-title">Why Choose MediCost AI?</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h4>Accurate Predictions</h4>
+                        <p>Advanced ML models trained on extensive healthcare data for precise cost estimation</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h4>Instant Results</h4>
+                        <p>Get your insurance cost prediction in seconds, not hours or days</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h4>Privacy First</h4>
+                        <p>Your data is processed securely and never stored or shared</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h4>Detailed Insights</h4>
+                        <p>Understand the factors affecting your insurance costs with clear explanations</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 MediCost AI. All rights reserved.</p>
+            <p>Powered by Advanced Machine Learning</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
