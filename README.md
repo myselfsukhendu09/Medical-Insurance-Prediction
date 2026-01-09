@@ -183,11 +183,17 @@ python src/model_evaluation.py
 
 ### 2. Launch Web Application
 
+#### Option A: Streamlit Dashboard (Recommended)
+```bash
+# From the root directory
+streamlit run streamlit_app.py
+```
+
+#### Option B: Classic Flask App
 ```bash
 cd web_app
 python app.py
 ```
-
 Then open your browser and navigate to: `http://localhost:5000`
 
 ### 3. Jupyter Notebooks
